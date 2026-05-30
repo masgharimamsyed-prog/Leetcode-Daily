@@ -38,3 +38,27 @@ Constraints:
 0 <= digits[i] <= 9
 digits does not contain any leading 0's.*/
 
+class Solution {
+
+public:
+  
+    vector<int> plusOne(vector<int>& digits) {
+       bool carryOne=false;
+       for(int i=digits.size()-1;i>=0;i--){
+        if(digits[i]!=9){
+            carryOne=false;
+            (digits[i])++;
+            return digits;
+        }
+        else if(digits[i]==9){
+           digits[i]=0;
+           carryOne=true;
+        }
+       }
+
+       if(carryOne){
+        digits.insert(digits.begin(),1);
+       }
+       return digits;
+    }
+};
